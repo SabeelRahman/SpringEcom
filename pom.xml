@@ -10,7 +10,7 @@
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>3.5.4</version>
-		<relativePath />
+		<relativePath/>
 	</parent>
 
 	<groupId>com.example</groupId>
@@ -169,6 +169,7 @@
 							</filters>
 							<transformers>
 								<transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+									<resource>META-INF/MANIFEST.MF</resource>
 									<mainClass>com.example.SpringEcom.SpringEcomApplication</mainClass>
 								</transformer>
 								<transformer implementation="org.apache.maven.plugins.shade.resource.AppendingTransformer">
