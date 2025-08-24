@@ -25,6 +25,7 @@
 		<jjwt.version>0.11.5</jjwt.version>
 		<jakarta.validation.version>3.0.2</jakarta.validation.version>
 		<hibernate.validator.version>8.0.0.Final</hibernate.validator.version>
+		<maven-shade-plugin.version>3.6.0</maven-shade-plugin.version>
 	</properties>
 
 	<dependencyManagement>
@@ -40,19 +41,19 @@
 	</dependencyManagement>
 
 	<dependencies>
-		<!-- Spring AI OpenAI Starter -->
+		<!-- Spring AI -->
 		<dependency>
 			<groupId>org.springframework.ai</groupId>
-			<artifactId>spring-ai-starter-model-openai</artifactId>
+			<artifactId>spring-ai-starter</artifactId>
 		</dependency>
 
-		<!-- Spring Web Starter -->
+		<!-- Spring Web -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 
-		<!-- JPA + PostgreSQL -->
+		<!-- Spring Data JPA and PostgreSQL -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
@@ -72,13 +73,13 @@
 			<optional>true</optional>
 		</dependency>
 
-		<!-- Jackson Java 8 Date/Time support -->
+		<!-- Jackson Modules -->
 		<dependency>
 			<groupId>com.fasterxml.jackson.datatype</groupId>
 			<artifactId>jackson-datatype-jsr310</artifactId>
 		</dependency>
 
-		<!-- JJWT -->
+		<!-- JWT -->
 		<dependency>
 			<groupId>io.jsonwebtoken</groupId>
 			<artifactId>jjwt-api</artifactId>
@@ -97,14 +98,12 @@
 			<scope>runtime</scope>
 		</dependency>
 
-		<!-- Jakarta Validation API -->
+		<!-- Validation -->
 		<dependency>
 			<groupId>jakarta.validation</groupId>
 			<artifactId>jakarta.validation-api</artifactId>
 			<version>${jakarta.validation.version}</version>
 		</dependency>
-
-		<!-- Hibernate Validator -->
 		<dependency>
 			<groupId>org.hibernate.validator</groupId>
 			<artifactId>hibernate-validator</artifactId>
@@ -117,12 +116,13 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+
 	</dependencies>
 
 	<build>
 		<finalName>sabeel-ecommerce</finalName>
 		<plugins>
-			<!-- Maven Compiler Plugin -->
+			<!-- Compiler plugin with lombok annotation processor -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
@@ -149,7 +149,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-shade-plugin</artifactId>
-				<version>3.6.0</version>
+				<version>${maven-shade-plugin.version}</version>
 				<executions>
 					<execution>
 						<phase>package</phase>
